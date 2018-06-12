@@ -9,12 +9,72 @@
   padding: 30px 10px;
 }
 
-.advantages__header {
+.advantages__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.advantages__first-header {
   width: 200px;
   margin: 0 auto;
+  padding-bottom: 40px;
   font-size: 32px;
   line-height: 46px;
   font-family: "Open Sans Bold", "Arial", sans-serif;
   color: $color-grey-dark;
   font-weight: normal;
+}
+
+.advantages__element {
+  width: 300px;
+  background-repeat: no-repeat;
+  background-size: 137px 83px;
+  background-position: 0 42px;
+}
+
+.advantages__second-header {
+  width: 400px;
+  margin: 0;
+  padding-bottom: 90px;
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  text-decoration: none;
+  color: $color-grey-dark;
+  text-align: left;
+}
+
+.advantages__description {
+  font-size: 16px;
+  line-height: 28px;
+  font-family: "Open Sans Regular", "Arial", sans-serif;
+  color: $color-grey-dark;
+}
+
+.advantages__element--storage {
+  background-image: url("../img/icon-storage.png");
+}
+
+.advantages__element--sap {
+  margin-bottom: 30px;
+  background-image: url("../img/icon-sap.png");
+}
+
+.advantages__element--paas {
+  background-image: url("../img/icon-paas.png");
+}
+
+.advantages__element--vdi {
+  background-image: url("../img/icon-vdi.png");
+}
+
+.advantages__element--recovery {
+  background-image: url("../img/icon-backup.png");
+}
+
+.advantages__element--migration {
+  background-image: url("../img/icon-migrate.png");
 }
