@@ -1,0 +1,24 @@
+.list {
+  width: 600px;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.list__element {
+  position: relative;
+  font-size: 16px;
+  line-height: 28px;
+  font-family: "Open Sans Regular", "Arial", sans-serif;
+  color: $color-grey-dark;
+
+  &::before {
+    position: absolute;
+    top: 3px;
+    left: -25px;
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/checked.png");
+    background-size: 20px 20px;
+    content: "";
+  }
+}

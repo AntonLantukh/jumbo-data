@@ -1,0 +1,14 @@
+.main-header {
+  width: 100%;
+  background-color: $color-white;
+}
+
+.main-header__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 1180px;
+  margin: 0 auto;
+  padding: 30px 10px;
+}

@@ -1,0 +1,70 @@
+.promo {
+  width: 100%;
+  background-image: url("../img/aircraft-1.jpg");
+  background-repeat: no-repeat;
+  background-position: 33% 33%;
+}
+
+.promo__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  width: 960px;
+  min-height: 390px;
+  margin: 0 auto;
+}
+
+.promo__header {
+  width: 1180px;
+  margin: 0;
+  padding: 90px 0 50px;
+  font-size: 48px;
+  line-height: 64px;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  text-decoration: none;
+  color: $color-white;
+  text-align: center;
+}
+
+.promo__text {
+  width: 900px;
+  padding-bottom: 30px;
+  margin: 0;
+  font-size: 24px;
+  line-height: 54px;
+  font-family: "Open Sans Regular", "Arial", sans-serif;
+  text-decoration: none;
+  color: $color-white;
+  text-align: center;
+  font-style: italic;
+}
+
+.promo__button {
+  padding: 10px 50px;
+  border-radius: 50px;
+  background-color: $color-blue;
+  border: 1px solid $color-white;
+  outline: none;
+  transition-property: background-color, opacity, border;
+  transition-duration: 0.7s;
+  font-size: 16px;
+  line-height: 28px;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  text-transform: uppercase;
+  color: $color-white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-white;
+    border: 1px solid $color-blue-light;
+    color: $color-blue;
+  }
+
+  &:focus {
+    background-color: $color-white;
+    border: 1px solid $color-blue-light;
+    color: $color-blue;
+    opacity: 0.6;
+  }
+}

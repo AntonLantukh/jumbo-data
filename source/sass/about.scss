@@ -1,0 +1,51 @@
+.about {
+  width: 100%;
+  background-color: $color-white;
+}
+
+.about__wrapper {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 30px 10px 0;
+  background-image: url("../img/cloud-2.png");
+  background-size: 651px 250px;
+  background-repeat: no-repeat;
+  background-position: 0 191px;
+}
+
+.about__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.about__header-first {
+  margin: 0;
+  padding-bottom: 40px;
+  font-size: 32px;
+  line-height: 46px;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  text-decoration: none;
+  color: $color-grey-dark;
+  text-align: center;
+}
+
+.about__header-second {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "Open Sans Bold", "Arial", sans-serif;
+  text-decoration: none;
+  color: $color-grey-dark;
+  text-align: left;
+}
+
+.about__description {
+  width: 500px;
+  font-size: 16px;
+  line-height: 28px;
+  font-family: "Open Sans Regular", "Arial", sans-serif;
+  color: $color-grey-dark;
+}
