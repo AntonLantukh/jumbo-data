@@ -15,16 +15,16 @@
       <nav clas="main-header__nav">
         <ul class="main-nav">
           <li>
-            <a href="#" class="main-nav__element">О компании</a>
+            <a href="#company-anchor" class="main-nav__element">О компании</a>
           </li>
           <li>
-            <a href="#" class="main-nav__element">Продукты</a>
+            <a href="#products-anchor" class="main-nav__element">Продукты</a>
           </li>
           <li>
-            <a href="#" class="main-nav__element">Преимущества</a>
+            <a href="#advantages-anchor" class="main-nav__element">Преимущества</a>
           </li>
           <li>
-            <a href="#" class="main-nav__element">Контакты</a>
+            <a href="#contacts-anchor" class="main-nav__element">Контакты</a>
           </li>
         </ul>
       </nav>
@@ -34,11 +34,12 @@
     <div class="promo">
       <div class="promo__wrapper">
         <h2 class="promo__header">Уникальный продуктовый портфель из компонентов IaaS/PaaS/SaaS</h2>
-        <button class="promo__button">Узнать больше!</button>
+        <button class="main-button promo__button">Узнать больше!</button>
       </div>
     </div>
     <article class="about">
       <div class="about__wrapper">
+        <a id="company-anchor"></a>
         <h2 class="about__header-first">О компании</h2>
         <div class="about__container">
           <div>
@@ -81,6 +82,7 @@
     </article>
     <article class="slider-products">
       <div class="slider-products__wrapper">
+        <a id="products-anchor"></a>
         <h2 class="slider-products__header">Продукты</h2>
         <button class="slider-products__button slider-products__button--left">Влево</button>
         <div class="slider-products__container slider-products__container--first">
@@ -140,6 +142,7 @@
     </article>
     <article class="advantages">
       <div class="advantages__wrapper">
+        <a id="advantages-anchor"></a>
         <h2 class="advantages__first-header">Преимущества</h2>
         <div class="advantages__container">
           <div class="advantages__element advantages__element--storage">
@@ -195,7 +198,26 @@
         </div>
       </div>
     </article>
+    <article class="contacts">
+      <div class="contacts__wrapper">
+        <a id="contacts-anchor"></a>
+        <h2 class="contacts__header">Контакты</h2>
+        <div class="contacts__container">
+          <p class="contacts__text contacts__text--phone">Звоните: <a href="tel:89199999999">+7 (919) 999-99-99</a></p>
+          <p class="contacts__text contacts__text--mail">Пишите: <a href="mailto:test@email.ru">test@email.ru</a></p>
+        </div>
+      </div>
+    </article>
+    <footer class="main-footer">
+      <div class="main-footer__wrapper">
+        <p class="main-footer__copyright">&#169; Jumbo Data, 2018</p>
+        <p class="main-footer__copyright">Все авторские и исключительные права защищены</p>
+      </div>
+    </footer>
   </main>
+  <script src="./js/jquery/jquery-3.3.1.min.js"></script>
+  <script src="./js/jquery/anchor.js"></script>
   <script src="./js/slider-products.js"></script>
+  <script src="./js/modal.js"></script>
 </body>
 </html>

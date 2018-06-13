@@ -1,0 +1,21 @@
+.main-footer {
+  width: 100%;
+  background-color: $color-blue;
+}
+
+.main-footer__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 5px 10px 0;
+}
+
+.main-footer__copyright {
+  padding: 0;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Open Sans Regular", "Arial", sans-serif;
+  color: $color-white;
+}

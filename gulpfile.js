@@ -10,6 +10,12 @@ const htmlmin = require("gulp-htmlmin");
 const notify = require("gulp-notify");
 const plumber = require("gulp-plumber");
 const imagemin = require("gulp-imagemin");
+const babel = require('rollup-plugin-babel');
+const uglify = require("gulp-uglify");
+const rollup = require('gulp-better-rollup');
+const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
+const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 
 gulp.task('styles', function() {
@@ -41,7 +47,32 @@ gulp.task("html", function () {
 gulp.task("js", function () {
   return gulp.src("source/js/*.js")
     .pipe(plumber())
-    .pipe(gulp.dest('build/js'))
+    .pipe(sourcemaps.init())
+    .pipe(rollup({
+      plugins: [
+        resolve({browser: true}),
+        commonjs(),
+        babel({
+          babelrc: false,
+          exclude: 'node_modules/**',
+          presets: [
+            ['babel-preset-env', {modules: false}]
+          ],
+          plugins: [
+            'external-helpers',
+          ]
+        })
+      ]
+    }, 'iife'))
+   .pipe(uglify())
+   .pipe(sourcemaps.write(''))
+   .pipe(gulp.dest('build/js'))
+});
+
+gulp.task("jquery", function () {
+  return gulp.src("source/js/jquery/*.js")
+    .pipe(plumber())
+    .pipe(gulp.dest('build/js/jquery'))
 });
 
 gulp.task("images", function() {
@@ -71,7 +102,8 @@ gulp.task('serve', function() {
   gulp.watch("source/**/*.scss", gulp.series('styles'));
   gulp.watch("source/**/*.html", gulp.series('html'));
   gulp.watch("source/**/*.js", gulp.series('js'));
+  gulp.watch("source/js/jquery/*.js", gulp.series('jquery'));
   browserSync.watch('build/**/*.*').on('change', browserSync.reload);
 });
 
-gulp.task(`build`, gulp.series('clean', gulp.parallel('styles', 'html', 'js', 'images', 'fonts')));
+gulp.task(`build`, gulp.series('clean', gulp.parallel('styles', 'html', 'js', 'jquery', 'images', 'fonts')));
