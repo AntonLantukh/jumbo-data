@@ -2,11 +2,11 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 450px;
-  height: 600px;
-  padding: 50px;
-  margin-top: -328px;
-  margin-left: -278px;
+  width: 320px;
+  height: 492px;
+  padding: 30px 30px 50px;
+  margin-top: -289px;
+  margin-left: -193px;
   background-color: $color-white;
   border: 3px solid $color-blue;
   border-radius: 40px;
@@ -15,7 +15,7 @@
 }
 
 .modal-popup--close {
-  animation: hide 1s;
+  animation: hide 0.5s;
   animation-fill-mode: forwards;
 }
 
@@ -23,39 +23,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 525px;
+  height: 468px;
 }
 
 .modal-popup__header {
   width: 310px;
   margin: 0 auto;
-  padding-bottom: 10px;
-  font-size: 32px;
-  line-height: 46px;
+  padding-bottom: 15px;
+  font-size: 24px;
+  line-height: 32px;
   font-family: "Open Sans Bold", "Arial", sans-serif;
   text-decoration: none;
   color: $color-grey-dark;
   text-align: center;
-
-  &::before {
-    position: absolute;
-    top: 0;
-    left: -33px;
-    width: 300px;
-    height: 1px;
-    content: "";
-    background-color: $color-blue;
-  }
-
-  &::after {
-    position: absolute;
-    top: 50px;
-    right: -17px;
-    width: 300px;
-    height: 1px;
-    content: "";
-    background-color: $color-blue;
-  }
 }
 
 .modal-popup__group {
@@ -63,11 +43,12 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 85px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .modal-popup__group--wide {
   height: 170px;
+  margin-bottom: 20px;
 }
 
 .modal-popup__group--wide textarea {
@@ -83,7 +64,7 @@
 
 .modal-popup__input {
   margin-bottom: 5px;
-  padding: 10px;
+  padding: 6px;
   border: 2px solid $color-blue;
   font-size: 16px;
   line-height: 28px;
@@ -92,22 +73,14 @@
 }
 
 .modal-popup__submit {
-  padding: 14px 50px;
-
-  &:hover {
-    padding: 12px 48px;
-
-  }
-
-  &:focus {
-    padding: 12px 48px;
-  }
+  padding: 22px 50px;
+  line-height: 12px;
 }
 
 .modal-popup__close {
   position: absolute;
-  top: 3%;
-  right: 3%;
+  top: -40px;
+  right: -40px;
   width: 30px;
   height: 30px;
   background: none;
@@ -125,7 +98,7 @@
     transform: rotate(45deg);
     transition-property: background-color;
     transition-duration: 0.8s;
-    background-color: $color-blue;
+    background-color: $color-white;
   }
 
   &::after {
@@ -138,16 +111,16 @@
     transform: rotate(-45deg);
     transition-property: background-color;
     transition-duration: 0.8s;
-    background-color: $color-blue;
+    background-color: $color-white;
   }
 
   &:hover {
     &::before {
-      background-color: $color-grey-dark;
+      background-color: $color-blue;
     }
 
     &::after {
-      background-color: $color-grey-dark;
+      background-color: $color-blue;
     }
   }
 

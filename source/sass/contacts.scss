@@ -83,5 +83,16 @@
 .contacts__text a {
   display: block;
   text-decoration: none;
-  color: $color-blue;
+  color: $color-blue-light;
+  transition-property: color, opacity;
+  transition-duration: 0.8s;
+
+  &:hover {
+    color: $color-blue;
+  }
+
+  &:focus {
+    color: $color-blue;
+    opacity: 0.5;
+  }
 }

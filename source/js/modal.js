@@ -56,7 +56,7 @@ const hideModal = () => {
   setTimeout(() => {
     body.removeChild(modal);
     body.removeChild(modalOverlay);
-  }, 1000);
+  }, 400);
 };
 
 // Function to delete popup at cross sign

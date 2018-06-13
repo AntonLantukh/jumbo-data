@@ -9,14 +9,14 @@ const checkMail = () => {
   input.setCustomValidity(``);
   if (!input.value) {
     input.setCustomValidity(`Поле не должно быть пустым`);
-    input.setAttribute(`style`, `border: 2px solid red`);
+    input.setAttribute(`style`, `border: 2px solid rgb(255, 0, 0)`);
     input.insertAdjacentHTML(`afterend`, `<p class="error__message error__message--mail">Поле не должно быть пустым</p>`);
   } else if (!input.value.match(regPattern)) {
     input.setCustomValidity(`Укажите корректный e-mail`);
-    input.setAttribute(`style`, `border: 2px solid red`);
+    input.setAttribute(`style`, `border: 2px solid rgb(255, 0, 0)`);
     input.insertAdjacentHTML(`afterend`, `<p class="error__message error__message--mail">Укажите корректный e-mail</p>`);
   } else {
-    input.setAttribute(`style`, `border: 2px solid limegreen`);
+    input.setAttribute(`style`, `border: 2px solid rgb(0, 255, 0)`);
     input.setCustomValidity(``);
   }
 };
@@ -31,10 +31,10 @@ const checkName = () => {
   input.setCustomValidity(``);
   if (!input.value) {
     input.setCustomValidity(`Поле не должно быть пустым`);
-    input.setAttribute(`style`, `border: 2px solid red`);
+    input.setAttribute(`style`, `border: 2px solid rgb(255, 0, 0)`);
     input.insertAdjacentHTML(`afterend`, `<p class="error__message error__message--name">Поле не должно быть пустым</p>`);
   } else {
-    input.setAttribute(`style`, `border: 2px solid limegreen`);
+    input.setAttribute(`style`, `border: 2px solid rgb(0, 255, 0)`);
     input.setCustomValidity(``);
   }
 };
@@ -52,14 +52,14 @@ const checkPhone = () => {
   if (input.value.length === MIN_LENGTH) {
     input.value = ``;
     input.setCustomValidity(`Поле не должно быть пустым`);
-    input.setAttribute(`style`, `border: 2px solid red`);
+    input.setAttribute(`style`, `border: 2px solid rgb(255, 0, 0)`);
     input.insertAdjacentHTML(`afterend`, `<p class="error__message error__message--phone">Поле не должно быть пустым</p>`);
   } else if (input.value.length < MAX_LENGTH) {
     input.setCustomValidity(`Укажите корректный номер`);
     input.insertAdjacentHTML(`afterend`, `<p class="error__message error__message--phone">Укажите корректный номер</p>`);
-    input.setAttribute(`style`, `border: 2px solid red`);
+    input.setAttribute(`style`, `border: 2px solid rgb(255, 0, 0)`);
   } else {
-    input.setAttribute(`style`, `border: 2px solid limegreen`);
+    input.setAttribute(`style`, `border: 2px solid rgb(0, 255, 0)`);
     input.setCustomValidity(``);
   }
 };
