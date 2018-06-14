@@ -4,9 +4,9 @@
 }
 
 .contacts__wrapper {
-  width: 1200px;
+  width: 940px;
   margin: 0 auto;
-  padding: 50px 10px;
+  padding: 50px 20px;
 }
 
 .contacts__container {
@@ -83,16 +83,16 @@
 .contacts__text a {
   display: block;
   text-decoration: none;
-  color: $color-blue-light;
+  color: $color-blue;
   transition-property: color, opacity;
   transition-duration: 0.8s;
 
   &:hover {
-    color: $color-blue;
+    color: $color-blue-light;
   }
 
   &:focus {
-    color: $color-blue;
+    color: $color-blue-light;
     opacity: 0.5;
   }
 }

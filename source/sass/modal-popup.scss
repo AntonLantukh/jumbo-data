@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   width: 320px;
-  height: 492px;
+  height: 510px;
   padding: 30px 30px 50px;
   margin-top: -289px;
   margin-left: -193px;
@@ -23,7 +23,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 468px;
 }
 
 .modal-popup__header {
@@ -42,8 +41,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 85px;
-  margin-bottom: 40px;
+  height: 65px;
+  margin-bottom: 20px;
 }
 
 .modal-popup__group--wide {
