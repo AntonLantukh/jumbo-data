@@ -7,7 +7,7 @@
   position: relative;
   width: 940px;
   margin: 0 auto;
-  padding: 50px 0 40px;
+  padding: 50px;
 }
 
 .slider-products__header {
@@ -64,7 +64,6 @@
   position: relative;
   width: 220px;
   margin-right: 20px;
-  cursor: pointer;
   transition-property: box-shadow, background-color;
   transition-duration: 0.5s;
 
@@ -109,66 +108,25 @@
 
 .slider-products__button {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 0;
   outline: none;
   background-color: transparent;
   z-index: 5;
   font-size: 0;
   cursor: pointer;
+  background-repeat: no-repeat;
 }
 
 .slider-products__button--left {
-  left: -10%;
-  top: 50%;
-
-  &::before {
-    position: absolute;
-    left: 29%;
-    top: 38%;
-    width: 20px;
-    height: 1px;
-    content: "";
-    background-color: $color-grey-dark;
-    transform: rotate(-45deg);
-  }
-
-  &::after {
-    position: absolute;
-    left: 31%;
-    top: 65%;
-    width: 20px;
-    height: 1px;
-    content: "";
-    background-color: $color-grey-dark;
-    transform: rotate(45deg);
-  }
+  left: 44%;
+  top: 91%;
+  background-image: url("../img/left.png");
 }
 
 .slider-products__button--right {
-  right: -10%;
-  top: 50%;
-
-  &::before {
-    position: absolute;
-    right: 29%;
-    top: 38%;
-    width: 20px;
-    height: 1px;
-    content: "";
-    background-color: $color-grey-dark;
-    transform: rotate(45deg);
-  }
-
-  &::after {
-    position: absolute;
-    right: 31%;
-    top: 65%;
-    width: 20px;
-    height: 1px;
-    content: "";
-    background-color: $color-grey-dark;
-    transform: rotate(-45deg);
-  }
+  right: 44%;
+  top: 91%;
+  background-image: url("../img/right.png");
 }

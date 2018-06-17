@@ -10,12 +10,9 @@ const htmlmin = require("gulp-htmlmin");
 const notify = require("gulp-notify");
 const plumber = require("gulp-plumber");
 const imagemin = require("gulp-imagemin");
-const babel = require('rollup-plugin-babel');
+const babel = require('gulp-babel');
 const uglify = require("gulp-uglify");
 const rollup = require('gulp-better-rollup');
-const resolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
-const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 
 gulp.task('styles', function() {
@@ -44,28 +41,19 @@ gulp.task("html", function () {
     .pipe(gulp.dest('build/'))
 });
 
+gulp.task("php", function () {
+  return gulp.src("source/*.php")
+  .pipe(gulp.dest('build/'))
+});
+
 gulp.task("js", function () {
   return gulp.src("source/js/*.js")
     .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(rollup({
-      plugins: [
-        resolve({browser: true}),
-        commonjs(),
-        babel({
-          babelrc: false,
-          exclude: 'node_modules/**',
-          presets: [
-            ['babel-preset-env', {modules: false}]
-          ],
-          plugins: [
-            'external-helpers',
-          ]
-        })
-      ]
-    }, 'iife'))
+    .pipe(rollup({}, 'iife'))
+    .pipe(babel({
+      presets: ['babel-preset-es2015']
+    }))
    .pipe(uglify())
-   .pipe(sourcemaps.write(''))
    .pipe(gulp.dest('build/js'))
 });
 
@@ -76,7 +64,7 @@ gulp.task("jquery", function () {
 });
 
 gulp.task("images", function() {
-  return gulp.src("source/img/**/*.{png,jpg,svg}")
+  return gulp.src("source/img/**/*.{png,jpg,svg,ico}")
     .pipe(imagemin([
       imagemin.optipng({optimizationLevel: 3}),
       imagemin.jpegtran({progressive: true}),
@@ -106,4 +94,4 @@ gulp.task('serve', function() {
   browserSync.watch('build/**/*.*').on('change', browserSync.reload);
 });
 
-gulp.task(`build`, gulp.series('clean', gulp.parallel('styles', 'html', 'js', 'jquery', 'images', 'fonts')));
+gulp.task(`build`, gulp.series('clean', gulp.parallel('styles', 'html', 'php', 'js', 'jquery', 'images', 'fonts')));
