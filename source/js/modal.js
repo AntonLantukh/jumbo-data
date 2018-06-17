@@ -31,6 +31,13 @@ const modalTemplate = () => {
   </div>`;
 };
 
+const modalOkTemplate = () => {
+  return `<div class="modal-popup modal-popup--confirm">
+            <buttton class="modal-popup__close">Закрыть</buttton>
+            <h2 class="modal-popup__header">Заполните форму</h2>
+         </div>`;
+};
+
 const modalOverlayTemplate = () => {
   return `<div class="modal-overlay"></div>`;
 };
@@ -70,8 +77,27 @@ const onOverlayPress = () => {
   hideModal();
 };
 
+// Function to show confirm popup
+const showConfirm = () => {
+  const modal = getElementFromTemplate(modalOkTemplate());
+  const modalOverlay = getElementFromTemplate(modalOverlayTemplate());
+  // Appending to DOM
+  body.insertAdjacentElement(`beforeEnd`, modal);
+  body.insertAdjacentElement(`beforeEnd`, modalOverlay);
+  // Setting variables
+  const closeButton = modal.querySelector(`.modal-popup__close`);
+  // Closing the modal at ESC
+  document.addEventListener(`keydown`, onPopEscPress);
+  // Closing at overlay click
+  modalOverlay.addEventListener(`click`, onOverlayPress);
+  // Closing the modal at cross sign
+  closeButton.addEventListener(`click`, () => {
+    hideModal();
+  });
+};
+
 // If clicking contact button
-buttonContact.addEventListener(`click`, function() {
+buttonContact.addEventListener(`click`, () => {
   // Constructing nodes
   const modal = getElementFromTemplate(modalTemplate());
   const modalOverlay = getElementFromTemplate(modalOverlayTemplate());
@@ -95,11 +121,11 @@ buttonContact.addEventListener(`click`, function() {
   // Closing at overlay click
   modalOverlay.addEventListener(`click`, onOverlayPress);
   // Closing the modal at cross sign
-  closeButton.addEventListener(`click`, function() {
+  closeButton.addEventListener(`click`, () => {
     hideModal();
   });
   // Closing the modal at submit
-  submitButton.addEventListener(`click`, function(event) {
+  submitButton.addEventListener(`click`, (event) => {
     event.preventDefault();
     const formData = modal.querySelector(`.modal-popup__wrapper`);
     phone.addEventListener('blur', checkPhone(), false);
@@ -111,6 +137,7 @@ buttonContact.addEventListener(`click`, function() {
     if (allRight) {
       formData.submit();
       hideModal();
+      showConfirm();
     }
   });
 });
