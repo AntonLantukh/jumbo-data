@@ -34,7 +34,11 @@ const modalTemplate = () => {
 const modalOkTemplate = () => {
   return `<div class="modal-popup modal-popup--confirm">
             <buttton class="modal-popup__close">Закрыть</buttton>
-            <h2 class="modal-popup__header">Заполните форму</h2>
+            <h2 class="modal-popup__header">Спасибо за обращение</h2>
+            <p class="modal-popup__label">
+              Благодарим за обращение! В скором времени мы свяжемся с Вами и
+              ответим на все интересующие Вас вопросы.
+            </p>
          </div>`;
 };
 
