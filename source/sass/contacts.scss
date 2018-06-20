@@ -68,15 +68,9 @@
   }
 }
 
-.contacts__text--phone {
-  &::before {
-    background-image: url("../img/icon-phone.png");
-  }
-}
-
 .contacts__text--mail {
   &::before {
-    background-image: url("../img/icon-mail.png");
+    background-image: url("../img/icons/icon-mail.png");
   }
 }
 

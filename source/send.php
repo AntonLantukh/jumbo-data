@@ -1,6 +1,6 @@
 <?
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $to = 'info@jumbodata.ru';
+    $to = 'lantukhanton@gmail.com';
     $subject = 'Обратный звонок';
     $message = '
       <html>
@@ -8,10 +8,10 @@
           <title>'.$subject.'</title>
         </head>
           <body>
-            <p>Имя: '.$_POST['name'].'</p>
-            <p>Телефон: '.$_POST['phone'].'</p>
-            <p>Телефон: '.$_POST['mail'].'</p>
-            <p>Текст сообщения: '.$_POST['text'].'</p>
+            <p>Имя: '.htmlspecialchars($_POST['name']).'</p>
+            <p>Телефон: '.htmlspecialchars($_POST['phone']).'</p>
+            <p>Телефон: '.htmlspecialchars($_POST['mail']).'</p>
+            <p>Текст сообщения: '.htmlspecialchars($_POST['text']).'</p>
         </body>
       </html>';
     $headers  = "Content-type: text/html; charset=utf-8 \r\n";

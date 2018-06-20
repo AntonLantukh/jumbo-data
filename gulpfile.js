@@ -10,6 +10,9 @@ const htmlmin = require("gulp-htmlmin");
 const notify = require("gulp-notify");
 const plumber = require("gulp-plumber");
 const imagemin = require("gulp-imagemin");
+const imageminJpegRecompress = require('imagemin-jpeg-recompress');
+const pngquant = require('imagemin-pngquant');
+const webp = require("gulp-webp");
 const babel = require('gulp-babel');
 const uglify = require("gulp-uglify");
 const rollup = require('gulp-better-rollup');
@@ -65,12 +68,28 @@ gulp.task("jquery", function () {
 
 gulp.task("images", function() {
   return gulp.src("source/img/**/*.{png,jpg,svg,ico}")
-    .pipe(imagemin([
-      imagemin.optipng({optimizationLevel: 3}),
-      imagemin.jpegtran({progressive: true}),
-      imagemin.svgo()
-    ]))
-    .pipe(gulp.dest("build/img"))
+  .pipe(imagemin([
+    imagemin.gifsicle({interlaced: true}),
+    imagemin.jpegtran({progressive: true}),
+    imageminJpegRecompress({
+      loops: 5,
+      min: 70,
+      max: 75,
+      quality:'medium'
+    }),
+    imagemin.svgo(),
+    imagemin.optipng({optimizationLevel: 3}),
+    pngquant({quality: '70-75', speed: 5})
+    ],{
+    verbose: true
+  }))
+  .pipe(gulp.dest("build/img"))
+});
+
+gulp.task("webp", function () {
+  return gulp.src("source/img/*.{png,jpg}")
+  .pipe(webp({quality: 80}))
+  .pipe(gulp.dest("build/img"));
 });
 
 gulp.task('fonts', function() {
@@ -94,4 +113,4 @@ gulp.task('serve', function() {
   browserSync.watch('build/**/*.*').on('change', browserSync.reload);
 });
 
-gulp.task(`build`, gulp.series('clean', gulp.parallel('styles', 'html', 'php', 'js', 'jquery', 'images', 'fonts')));
+gulp.task(`build`, gulp.series('clean', gulp.parallel('styles', 'html', 'php', 'js', 'jquery', 'images', 'webp', 'fonts')));
