@@ -73,13 +73,13 @@ gulp.task("images", function() {
     imagemin.jpegtran({progressive: true}),
     imageminJpegRecompress({
       loops: 5,
-      min: 65,
-      max: 70,
+      min: 35,
+      max: 40,
       quality:'medium'
     }),
     imagemin.svgo(),
     imagemin.optipng({optimizationLevel: 3}),
-    pngquant({quality: '65-70', speed: 5})
+    pngquant({quality: '35-40', speed: 5})
     ],{
     verbose: true
   }))
