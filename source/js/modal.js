@@ -20,7 +20,7 @@ const modalTemplate = () => {
       </div>
       <div class="modal-popup__group">
         <label class="modal-popup__label" for="mail">E-mail</label>
-        <input class="modal-popup__input" type="text" id="mail" name="mail" placeholder="Укажите e-mail" required="true">
+        <input class="modal-popup__input" type="text" id="mail" name="email" placeholder="Укажите e-mail" required="true">
       </div>
       <div class="modal-popup__group modal-popup__group--wide">
         <label class="modal-popup__label" for="text">Сообщение</label>
@@ -59,8 +59,8 @@ const getElementFromTemplate = (template) => {
 const hideModal = () => {
   const modal = document.querySelector(`.modal-popup`);
   const modalOverlay = document.querySelector(`.modal-overlay`);
-  modal.classList.add('modal-popup--close');
-  modalOverlay.classList.add('modal-overlay--close');
+  modal.classList.add(`modal-popup--close`);
+  modalOverlay.classList.add(`modal-overlay--close`);
   setTimeout(() => {
     body.removeChild(modal);
     body.removeChild(modalOverlay);
@@ -112,16 +112,16 @@ buttonContact.addEventListener(`click`, () => {
   const inputs = modal.querySelectorAll(`input`);
   const closeButton = modal.querySelector(`.modal-popup__close`);
   const submitButton = modal.querySelector(`.modal-popup__submit`);
-  const phone = modal.querySelector('#phone');
-  const mail = modal.querySelector('#mail');
-  const name = modal.querySelector('#name');
+  const phone = modal.querySelector(`#phone`);
+  const mail = modal.querySelector(`#mail`);
+  const name = modal.querySelector(`#name`);
   // Closing the modal at ESC
   document.addEventListener(`keydown`, onPopEscPress);
   // Validation
-  modal.querySelector('#phone').addEventListener('input', mask, false);
-  phone.addEventListener('blur', checkPhone, false);
-  mail.addEventListener('blur', checkMail, false);
-  name.addEventListener('blur', checkName, false);
+  modal.querySelector(`#phone`).addEventListener(`input`, mask, false);
+  phone.addEventListener(`blur`, checkPhone, false);
+  mail.addEventListener(`blur`, checkMail, false);
+  name.addEventListener(`blur`, checkName, false);
   // Closing at overlay click
   modalOverlay.addEventListener(`click`, onOverlayPress);
   // Closing the modal at cross sign
@@ -132,14 +132,14 @@ buttonContact.addEventListener(`click`, () => {
   submitButton.addEventListener(`click`, (event) => {
     event.preventDefault();
     const formData = modal.querySelector(`.modal-popup__wrapper`);
-    phone.addEventListener('blur', checkPhone(), false);
-    mail.addEventListener('blur', checkMail(), false);
-    name.addEventListener('blur', checkName(), false);
+    phone.addEventListener(`blur`, checkPhone(), false);
+    mail.addEventListener(`blur`, checkMail(), false);
+    name.addEventListener(`blur`, checkName(), false);
     const allRight =  Array.from(inputs).every((element) => {
       return element.checkValidity() !== false;
     });
     if (allRight) {
-      formData.submit();
+      emailjs.sendForm(`Jumbo`, `template_HWnr6jD6`, `.modal-popup__wrapper`, `user_Y9nhESnU7WmU93C6hQ4FL`);
       hideModal();
       showConfirm();
     }

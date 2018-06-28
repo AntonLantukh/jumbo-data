@@ -246,7 +246,7 @@
         <a id="contacts-anchor"></a>
         <h2 class="contacts__header">Контакты</h2>
         <div class="contacts__container">
-          <p class="contacts__text contacts__text--mail">Пишите: <a href="mailto:test@email.ru">info@jumbodata.ru</a></p>
+          <p class="contacts__text contacts__text--mail">Пишите: <a href="mailto:info@jumbodata.ru">info@jumbodata.ru</a></p>
         </div>
       </div>
     </article>
@@ -257,6 +257,12 @@
       </div>
     </footer>
   </main>
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("<user_Y9nhESnU7WmU93C6hQ4FL>");
+     })();
+  </script>
   <script src="./js/jquery/jquery-3.3.1.min.js"></script>
   <script src="./js/jquery/anchor.js"></script>
   <script src="./js/slider-products.js"></script>
