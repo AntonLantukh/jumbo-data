@@ -9,7 +9,7 @@ const modalTemplate = () => {
   return `<div class="modal-popup">
     <buttton class="modal-popup__close">Закрыть</buttton>
     <h2 class="modal-popup__header">Заполните форму</h2>
-    <form class="modal-popup__wrapper" action="send.php" method="post" enctype="multipart/form-data">
+    <form class="modal-popup__wrapper" method="post" enctype="multipart/form-data">
       <div class="modal-popup__group">
         <label class="modal-popup__label" for="name">Имя</label>
         <input class="modal-popup__input" type="text" id="name" name="name" placeholder="Как к Вам можно обращаться" required="true">
